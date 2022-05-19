@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:id="@+id/options_group">
+        <item android:id="@+id/torch"
+            android:icon="@drawable/torch"
+            android:title="@string/call_option_torch" />
+        <item android:id="@+id/laser"
+            android:icon="@drawable/laser_off"
+            android:title="@string/call_option_laser" />
+    </group>
+    <group android:id="@+id/actions_group">
+        <item android:id="@+id/take_picture"
+            android:icon="@drawable/take_picture"
+            android:title="@string/call_action_take_picture" />
+    </group>
+    <item
+        android:id="@+id/messages"
+        android:icon="@drawable/messages"
+        android:title="@string/call_open_message" />
+    <item
+        android:id="@+id/hangup"
+        android:icon="@drawable/hangup"
+        android:title="@string/hangup" />
+</menu>

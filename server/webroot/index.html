@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!--
+Copyright (c) 2018 The Wizzeye Authors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+  <link rel="icon" href="/s/img/favicon.png" />
+  <link rel="stylesheet" type="text/css" href="/s/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="/s/css/style.css" />
+  <title>Wizzeye</title>
+</head>
+<body class="fullscreen d-flex flex-column">
+  <div id="error-banner" class="alert alert-danger mb-0 fade show" role="alert">
+    <span>Please enable Javascript for this site.</span>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+
+  <div class="mx-auto my-auto d-flex flex-column justify-content-center">
+    <div class="mx-auto my-auto d-flex flex-wrap">
+      <img src="/s/img/logo.svg" class="logo mx-auto m-sm-5" />
+      <h1 class="display-3 my-auto mx-auto mr-sm-5">Wizzeye</h1>
+    </div>
+    <form id="joinform">
+      <div class="input-group input-group-lg my-2 flex-fill">
+        <input type="input" class="form-control" id="room"
+          autofocus="autofocus"
+          minlength="5" maxlength="64" pattern="[-_A-Za-z0-9]*"
+          title="A room name consists of letters, digits, '-' or '_'" />
+        <div class="input-group-append">
+          <button type="submit" class="btn btn-warning">Join room</button>
+        </div>
+      </div>
+      <div class="form-check text-center">
+        <input type="checkbox" class="form-check-input" id="acceptTerms" required="required" />
+        <label class="form-check-label" for="acceptTerms">
+          I have read and accept <a href="/s/legal/">the terms of use and privacy policy</a>
+        </label>
+      </div>
+    </form>
+    <div class="mx-auto mt-5 d-flex flex-wrap">
+      <img class="mx-2 my-auto" src="/s/img/android.svg" />
+      <p class="mx-2 my-auto">
+        Get the Android app<br/>
+        • <a href="https://play.google.com/store/apps/details?id=app.wizzeye.app">on Google Play</a><br/>
+        • <a href="/s/Wizzeye.apk">direct APK download</a><br/>
+      </p>
+    </div>
+  </div>
+
+  <script src="/s/js/jquery.min.js"></script>
+  <script src="/s/js/bootstrap.bundle.min.js"></script>
+  <script src="/s/js/browser-detect.js"></script>
+  <script src="/s/js/index.js"></script>
+</body>
+</html>

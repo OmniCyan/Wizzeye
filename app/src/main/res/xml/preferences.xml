@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="@string/pref_general_category">
+
+        <ListPreference
+            android:key="video_quality"
+            android:title="@string/pref_video_quality_title"
+            android:entries="@array/pref_video_quality_labels"
+            android:entryValues="@array/pref_video_quality_values"
+            android:defaultValue="NORMAL" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/pref_advanced_network_category">
+
+        <EditTextPreference
+            android:key="server"
+            android:title="@string/pref_server_title"
+            android:defaultValue="@string/default_server" />
+
+        <EditTextPreference
+            android:key="stun_hostname"
+            android:title="@string/pref_stun_hostname"
+            android:defaultValue="@string/default_stun_hostname" />
+
+        <EditTextPreference
+            android:key="turn_hostname"
+            android:title="@string/pref_turn_hostname" />
+
+        <EditTextPreference
+            android:key="turn_username"
+            android:title="@string/pref_turn_username" />
+
+        <EditTextPreference
+            android:key="turn_password"
+            android:title="@string/pref_turn_password"
+            android:password="true" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/pref_about_category">
+
+        <Preference
+            android:key="about_version"
+            android:title="@string/app_name" />
+
+        <Preference
+            android:key="about_legal"
+            android:title="@string/pref_about_legal" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

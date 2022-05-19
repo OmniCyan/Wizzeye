@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!--
+Copyright (c) 2018 The Wizzeye Authors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+  <link rel="icon" href="/s/img/favicon.png" />
+  <link rel="stylesheet" type="text/css" href="/s/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="/s/css/style.css" />
+  <title>Wizzeye</title>
+</head>
+<body class="fullscreen d-flex flex-column">
+  <nav class="navbar navbar-dark bg-primary">
+    <span class="navbar-brand mb-1 h1">Wizzeye</span>
+    <div class="navbar-nav mr-auto">
+      <a id="roomname" class="nav-item nav-link active" href="#"></a>
+    </div>
+    <a href="/" class="btn btn-warning">End call</a>
+  </nav>
+
+  <div id="error-banner" class="alert alert-danger mb-0 fade show" role="alert">
+    <span>Please enable Javascript for this site.</span>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+
+  <div id="statusbox" class="statusbox mx-auto my-auto">
+    <img src="/s/img/logo.svg" class="logo mx-auto" />
+    <h1 id="status" class="status">Loading</h1>
+    <p id="status-hint" class="status-description"></p>
+  </div>
+
+  <div id="errorbox" class="statusbox mx-auto my-auto d-none">
+    <img src="/s/img/logo.svg" class="logo mx-auto" />
+    <h1 class="status text-warning">Oops, something went wrong</h1>
+    <p id="error" class="status-description"></p>
+  </div>
+
+  <div id="notice-turbulence" class="alert alert-dark notice d-none" role="alert">
+    Experiencing network issues
+  </div>
+
+  <video id="remote" autoplay="autoplay" class="flex-fill d-none"></video>
+
+  <script src="/s/js/webrtc-adapter.js"></script>
+  <script src="/s/js/jquery.min.js"></script>
+  <script src="/s/js/bootstrap.bundle.min.js"></script>
+  <script src="/s/js/browser-detect.js"></script>
+  <script src="/s/js/room.js"></script>
+</body>
+</html>

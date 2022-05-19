@@ -1,0 +1,100 @@
+<resources>
+    <string name="app_name">Wizzeye</string>
+
+    <!-- Menu items -->
+    <string name="menu_settings">Settings</string>
+    <string name="menu_logs">Show logs</string>
+    <string name="menu_share_link">Share link</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_refresh">Refresh</string>
+    <string name="menu_scan_qr">Scan QR code</string>
+
+    <!-- Preferences -->
+    <string name="pref_general_category">General</string>
+    <string name="pref_video_quality_title">Video quality</string>
+    <string name="pref_advanced_network_category">Advanced network options</string>
+    <string name="pref_server_title">Signaling server</string>
+    <string name="pref_stun_hostname">STUN server</string>
+    <string name="pref_turn_hostname">TURN server</string>
+    <string name="pref_turn_username">TURN username</string>
+    <string name="pref_turn_password">TURN password</string>
+    <string name="pref_about_category">About</string>
+    <string name="pref_about_version_summary">Version %s</string>
+    <string name="pref_about_legal">Legal Information</string>
+
+    <!-- States -->
+    <string name="state_idle">Idle</string>
+    <string name="state_error">Error</string>
+    <string name="state_waiting_for_network">Waiting for network connectivity</string>
+    <string name="state_connecting_to_server">Connecting to Wizzeye server</string>
+    <string name="state_waiting_for_headset">Waiting for Iristick smart glasses</string>
+    <string name="state_waiting_for_observer">Waiting for remote observer to join</string>
+    <string name="state_establishing">Establishing video connection</string>
+    <string name="state_call_in_progress">Call in progress</string>
+
+    <string name="state_hint_waiting_for_network">Make sure airplane mode is off and you are connected to the internet.</string>
+    <string name="state_hint_waiting_for_headset">Please connect the Iristick pocket unit and smart glasses.</string>
+    <string name="state_hint_waiting_for_observer">Please direct the remote observer to %1$s with room name ‘%2$s’.  You can also use the share button above to share a direct link.</string>
+
+    <!-- Errors -->
+    <string name="error_wizzeye_outdated">The installed version of Wizzeye is not supported anymore.  Please update and try again.</string>
+    <string name="error_invalid_ice_servers">The STUN or TURN server configuration is invalid.  Please check the server names in the settings.</string>
+    <string name="error_server_unreachable">The Wizzeye server could not be reached.  Make sure you are running the latest Wizzeye, and try again later or choose another server in the settings.</string>
+    <string name="error_services_not_installed">The Iristick Services are not installed.  Please install from the <a href="https://play.google.com/store/apps/details?id=com.iristick.smartglass.service">Play Store</a> and try again.</string>
+    <string name="error_services_outdated">The Iristick Services installed on this device are outdated.  Please <a href="https://play.google.com/store/apps/details?id=com.iristick.smartglass.service">update</a> and try again.</string>
+    <string name="error_services_unknown">An error has occurred in the Iristick Services.  Check the logs for more details.</string>
+    <string name="error_invalid_room">The chosen room name is not valid.  Go back and choose another name.</string>
+    <string name="error_room_busy">Another glass wearer has already joined the room.  You cannot join this room until this person left.</string>
+    <string name="error_signaling">An error has occurred while communicating with the Wizzeye server.  Check the logs for more details.</string>
+    <string name="error_webrtc">An error has occurred while establishing the video communication.  Check the logs for more details.</string>
+    <string name="error_ice">We could not reach the remote observer\'s device.  This could be due to restrictive firewalls.  Consider adding a TURN server in the settings.</string>
+    <string name="error_camera">The cameras of the Iristick smart glasses experienced an error.  Make sure no other apps are using the cameras and try again.</string>
+    <string name="error_import_settings">Some/all settings could not be imported. Please ensure the QR code contains valid settings and try again.</string>
+
+    <!-- Notification -->
+    <string name="notif_channel_name">Ongoing call</string>
+    <string name="notif_channel_description">Information about ongoing call</string>
+
+    <!-- Common labels -->
+    <string name="hangup">End call</string>
+    <string name="intent_chooser_open_with">Open with</string>
+    <string name="back_dialog_message">You are leaving Wizzeye.  Do you want to continue the call in the background?</string>
+    <string name="back_dialog_action_continue">Background</string>
+
+    <!-- PermissionsFragment -->
+    <string name="permissions_title">Permissions required</string>
+    <string name="permissions_description">Wizzeye needs access to the camera and microphone for communication and to storage to save pictures.</string>
+    <string name="permissions_grant">Grant permissions</string>
+
+    <!-- RoomSelectionFragment -->
+    <string name="roomselection_join">Join</string>
+    <string name="roomselection_generate_random"><u>Generate random room name</u></string>
+    <string name="roomselection_room_name">Room name</string>
+    <string name="roomselection_error_short">At least 5 characters are required</string>
+    <string name="roomselection_error_long">Maximum 64 characters</string>
+    <string name="roomselection_error_invalid">Only a-z, 0-9, "-" and "_" are allowed</string>
+
+    <!-- ErrorFragment -->
+    <string name="error_title">Oops, something went wrong</string>
+    <string name="error_try_again">Try again</string>
+    <string name="error_try_again_countdown">Try again (%d)</string>
+
+    <!-- CallFragment -->
+    <string name="call_hint_focus">Tap the zoom bar to refocus</string>
+    <string name="call_option_torch">Flashlight</string>
+    <string name="call_option_laser">Laser</string>
+    <string name="call_action_take_picture">Take picture</string>
+    <string name="call_open_message">Take picture</string>
+    <string name="call_toast_picture_taken">Picture taken</string>
+    <string name="call_toast_picture_fail">Oops, the picture could not be taken</string>
+    <string name="call_toast_focus_forbidden">Please zoom out to refocus</string>
+
+    <!-- LogsActivity -->
+    <string name="logs_title">Logs</string>
+
+    <!-- SettingsActivity -->
+    <string name="settings_title">Settings</string>
+    <string name="xzing_not_installed_title">QR scanner not found</string>
+    <string name="xzing_not_installed_message">The import functionality needs a compatible QR code scanner app to be installed.</string>
+    <string name="xzing_not_installed_ok">Open in Play Store</string>
+</resources>
