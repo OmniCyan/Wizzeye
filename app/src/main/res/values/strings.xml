@@ -89,6 +89,9 @@
     <string name="call_toast_picture_fail">Oops, the picture could not be taken</string>
     <string name="call_toast_focus_forbidden">Please zoom out to refocus</string>
 
+    <!-- TchatFragment -->
+    <string name="displaypresentation_explanation">ceci affiche le resultat d une requete sur l ecran des lunettes</string>
+
     <!-- LogsActivity -->
     <string name="logs_title">Logs</string>
 

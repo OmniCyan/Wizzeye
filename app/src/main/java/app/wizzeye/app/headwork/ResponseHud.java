@@ -19,14 +19,14 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-class ResponseHud extends HudPresentation {
+public class ResponseHud extends HudPresentation {
 
     int i = 0;
     private TextView mDisplayText;
     @NonNull private final Handler mHandler;
     @NonNull private final DateFormat mFormat;
 
-    ResponseHud(@NonNull Context outerContext, @NonNull Display display) {
+    public ResponseHud(@NonNull Context outerContext, @NonNull Display display) {
         super(outerContext, display);
         mHandler = new Handler(getContext().getMainLooper());
         mFormat = SimpleDateFormat.getTimeInstance();
