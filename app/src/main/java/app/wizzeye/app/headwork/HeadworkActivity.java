@@ -7,28 +7,25 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v7.app.ActionBar;
 import android.util.Log;
 import android.view.Display;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
-import androidx.core.app.ActivityCompat;
-
-import com.google.android.gms.location.FusedLocationProviderClient;
-import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.iristick.smartglass.examples.BaseActivity;
-import com.iristick.smartglass.examples.R;
 import com.iristick.smartglass.support.app.HudActivity;
 import com.iristick.smartglass.support.app.HudPresentation;
+
+import app.wizzeye.app.BaseActivity;
+import app.wizzeye.app.R;
 
 /**
  * This example displays the current time on the display, using standard Android UI elements.
  */
 public class HeadworkActivity extends BaseActivity implements HudActivity, LocationListener {
 
-    private FusedLocationProviderClient fusedLocationClient;
+    //private FusedLocationProviderClient fusedLocationClient;
 
     protected LocationManager locationManager;
     protected LocationListener locationListener;
@@ -45,7 +42,7 @@ public class HeadworkActivity extends BaseActivity implements HudActivity, Locat
         setContentView(R.layout.headwork_activity);
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null)
-            actionBar.setTitle(R.string.Headwork_title);
+            actionBar.setTitle(R.string.app_name);
 
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {

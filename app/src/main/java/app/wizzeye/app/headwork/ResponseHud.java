@@ -1,24 +1,20 @@
 package app.wizzeye.app.headwork;
 
 import android.content.Context;
-import android.location.Location;
-import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.Display;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
 
-import com.iristick.smartglass.core.TouchEvent;
-import com.iristick.smartglass.examples.Data;
-import com.iristick.smartglass.examples.ExampleApplication;
-import com.iristick.smartglass.examples.R;
 import com.iristick.smartglass.support.app.HudPresentation;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
+import app.wizzeye.app.R;
+import app.wizzeye.app.WizzeyeApplication;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -60,7 +56,7 @@ class ResponseHud extends HudPresentation {
         public void run() {
             //mDisplayText.setText(mFormat.format(new Date()));
             i = i + 1;
-            Call<Data> response = ExampleApplication.getService().serviceResponse(String.valueOf(i));
+            Call<Data> response = WizzeyeApplication.getService().serviceResponse(String.valueOf(i));
             response.enqueue(new Callback<Data>() {
                 @Override
                 public void onResponse(Call<Data> call, Response<Data> response) {
