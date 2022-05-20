@@ -14,9 +14,9 @@
             android:title="@string/call_action_take_picture" />
     </group>
     <item
-        android:id="@+id/messages"
-        android:icon="@drawable/messages"
-        android:title="@string/call_open_message" />
+        android:id="@+id/tchat"
+        android:icon="@drawable/tchat"
+        android:title="@string/call_open_tchat" />
     <item
         android:id="@+id/hangup"
         android:icon="@drawable/hangup"

@@ -49,10 +49,12 @@ public class LogsActivity extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // ouvre le layout
         setContentView(R.layout.activity_logs);
         mAdapter = new LogcatAdapter();
         ((ListView) findViewById(R.id.logs)).setAdapter(mAdapter);
 
+        // Active la Action bar pour permettre le back probablement
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle(R.string.logs_title);
         actionBar.setDisplayHomeAsUpEnabled(true);
@@ -106,6 +108,7 @@ public class LogsActivity extends BaseActivity {
             notifyDataSetChanged();
         }
 
+        // permet un affichage adapté
         @Override
         public String toString() {
             return BuildConfig.APPLICATION_ID + " " + BuildConfig.VERSION_NAME + "\n" +
@@ -129,6 +132,7 @@ public class LogsActivity extends BaseActivity {
 
         @Override
         public View getView(int position, View view, ViewGroup parent) {
+            // regarde si aucun text n'es ecrit (aucun log)
             if (view == null) {
                 view = LayoutInflater.from(parent.getContext())
                     .inflate(R.layout.item_logline, parent, false);

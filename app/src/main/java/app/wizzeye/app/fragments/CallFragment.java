@@ -220,22 +220,26 @@ public class CallFragment extends InRoomFragment {
         if (mCall == null)
             return false;
         switch (item.getItemId()) {
-        case R.id.torch:
-            boolean newTorch = !mCall.getTorch();
-            mCall.setTorch(newTorch);
-            break;
-        case R.id.laser:
-            LaserMode newLaser = mCall.getLaser().next();
-            mCall.setLaser(newLaser);
-            break;
-        case R.id.take_picture:
-            mCall.takePicture();
-            mDrawerLayout.closeDrawers();
-            break;
-        case R.id.hangup:
-            mCall.stop();
-            mDrawerLayout.closeDrawers();
-            break;
+            case R.id.torch:
+                boolean newTorch = !mCall.getTorch();
+                mCall.setTorch(newTorch);
+                break;
+            case R.id.laser:
+                LaserMode newLaser = mCall.getLaser().next();
+                mCall.setLaser(newLaser);
+                break;
+            case R.id.take_picture:
+                mCall.takePicture();
+                mDrawerLayout.closeDrawers();
+                break;
+            case R.id.tchat:
+                mCall.stop();
+                mDrawerLayout.closeDrawers();
+                break;
+            case R.id.hangup:
+                mCall.stop();
+                mDrawerLayout.closeDrawers();
+                break;
         }
         return false;
     };

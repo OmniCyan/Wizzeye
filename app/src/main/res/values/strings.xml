@@ -84,7 +84,7 @@
     <string name="call_option_torch">Flashlight</string>
     <string name="call_option_laser">Laser</string>
     <string name="call_action_take_picture">Take picture</string>
-    <string name="call_open_message">Take picture</string>
+    <string name="call_open_tchat">Show tchat</string>
     <string name="call_toast_picture_taken">Picture taken</string>
     <string name="call_toast_picture_fail">Oops, the picture could not be taken</string>
     <string name="call_toast_focus_forbidden">Please zoom out to refocus</string>
