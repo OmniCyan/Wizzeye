@@ -33,15 +33,18 @@ import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.v7.app.ActionBar;
 import android.util.Log;
+import android.view.Display;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.WindowManager;
 
 import com.iristick.smartglass.core.Headset;
+import com.iristick.smartglass.support.app.HudPresentation;
 import com.iristick.smartglass.support.app.IristickApp;
 
 import app.wizzeye.app.fragments.BaseFragment;
 import app.wizzeye.app.fragments.PermissionsFragment;
+import app.wizzeye.app.headwork.ResponseHud;
 import app.wizzeye.app.service.Call;
 import app.wizzeye.app.service.CallService;
 import app.wizzeye.app.service.CallState;
@@ -225,5 +228,4 @@ public class MainActivity extends BaseActivity implements ServiceConnection, Cal
             }
         }
     }
-
 }
