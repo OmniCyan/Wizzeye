@@ -22,14 +22,28 @@ package app.wizzeye.app;
 
 import android.app.Application;
 
+import com.google.gson.GsonBuilder;
 import com.iristick.smartglass.support.app.IristickApp;
+
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class WizzeyeApplication extends Application {
 
+    static HeadworkService service;
     @Override
     public void onCreate() {
         super.onCreate();
         IristickApp.init(this);
+        Retrofit retrofit = new Retrofit.Builder()
+            .baseUrl("https://headwork.irisa.fr/headwork/")
+            .addConverterFactory(GsonConverterFactory.create(new GsonBuilder().setLenient().create()))
+            .build();
+        service = retrofit.create(HeadworkService.class);
+    }
+
+    public static HeadworkService getService() {
+        return service;
     }
 
 }
