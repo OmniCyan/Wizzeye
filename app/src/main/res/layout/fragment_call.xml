@@ -60,18 +60,30 @@
 
         </FrameLayout>
 
+        <ImageButton
+            android:id="@+id/chat_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#ffbf00"
+            app:layout_constraintBottom_toTopOf="@+id/more"
+            app:layout_constraintEnd_toEndOf="@+id/zoom_layout"
+            app:layout_constraintStart_toStartOf="@+id/zoom_layout"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/tchat"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/more"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:src="@drawable/more"
-            app:fabSize="mini"
             app:borderWidth="0dp"
+            app:fabSize="mini"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/zoom_layout"
-            app:layout_constraintBottom_toBottomOf="parent"
-            />
+            tools:ignore="SpeakableTextPresentCheck" />
 
     </android.support.constraint.ConstraintLayout>
 

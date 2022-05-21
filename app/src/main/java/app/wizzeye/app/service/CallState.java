@@ -26,6 +26,7 @@ import android.support.annotation.StringRes;
 import app.wizzeye.app.R;
 import app.wizzeye.app.fragments.BaseFragment;
 import app.wizzeye.app.fragments.CallFragment;
+import app.wizzeye.app.fragments.ChatFragment;
 import app.wizzeye.app.fragments.ConnectingFragment;
 import app.wizzeye.app.fragments.ErrorFragment;
 import app.wizzeye.app.fragments.RoomSelectionFragment;
