@@ -45,6 +45,7 @@ import app.wizzeye.app.MainActivity;
 import app.wizzeye.app.R;
 import app.wizzeye.app.WizzeyeApplication;
 import app.wizzeye.app.headwork.ChatService;
+import app.wizzeye.app.headwork.ChatServiceView;
 import app.wizzeye.app.headwork.Data;
 import app.wizzeye.app.service.Call;
 import app.wizzeye.app.service.LaserMode;
@@ -233,10 +234,11 @@ public class CallFragment extends InRoomFragment {
         }
     };
 
-    private void onClickChat(){
+    private ChatServiceView onClickChat(){
 
         Log.d("url","VOICI LA CHAT ");
-        new ChatService(getContext(), getView().getDisplay());
+        //new ChatService(getContext(), getView().getDisplay());
+        return new ChatServiceView();
     }
 
     private final NavigationView.OnNavigationItemSelectedListener mOptionsListener = item -> {
