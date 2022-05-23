@@ -20,15 +20,21 @@
  */
 package app.wizzeye.app.fragments;
 
+import android.content.ClipData;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.Toast;
@@ -57,6 +63,8 @@ public class CallFragment extends InRoomFragment {
     private NavigationView mOptions;
     private Message mParametersChangedMessage;
     private Message mTurbulenceMessage;
+    private ImageButton mImageButton;
+
 
     private boolean mFocusHintShown = false;
 
@@ -82,6 +90,9 @@ public class CallFragment extends InRoomFragment {
         mOptions.setNavigationItemSelectedListener(mOptionsListener);
         mMore = view.findViewById(R.id.more);
         mMore.setOnClickListener(v -> mDrawerLayout.openDrawer(mOptions));
+
+        mImageButton = view.findViewById(R.id.chat_button);
+
 
         Handler handler = new Handler(this::handleMessage);
         mParametersChangedMessage = handler.obtainMessage(MSG_PARAMETERS_CHANGED);
@@ -216,6 +227,10 @@ public class CallFragment extends InRoomFragment {
         }
     };
 
+    private void onClickChat(){
+        Log.e("test1","je veux créer ma view chat");
+    }
+
     private final NavigationView.OnNavigationItemSelectedListener mOptionsListener = item -> {
         if (mCall == null)
             return false;
@@ -230,10 +245,6 @@ public class CallFragment extends InRoomFragment {
                 break;
             case R.id.take_picture:
                 mCall.takePicture();
-                mDrawerLayout.closeDrawers();
-                break;
-            case R.id.tchat:
-                mCall.stop();
                 mDrawerLayout.closeDrawers();
                 break;
             case R.id.hangup:
