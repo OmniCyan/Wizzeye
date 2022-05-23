@@ -234,11 +234,11 @@ public class CallFragment extends InRoomFragment {
         }
     };
 
-    private ChatServiceView onClickChat(){
+    private void onClickChat(){
 
         Log.d("url","VOICI LA CHAT ");
         //new ChatService(getContext(), getView().getDisplay());
-        return new ChatServiceView();
+        new ChatServiceView();
     }
 
     private final NavigationView.OnNavigationItemSelectedListener mOptionsListener = item -> {

@@ -44,7 +44,6 @@ import com.iristick.smartglass.support.app.IristickApp;
 
 import app.wizzeye.app.fragments.BaseFragment;
 import app.wizzeye.app.fragments.PermissionsFragment;
-import app.wizzeye.app.headwork.ResponseHud;
 import app.wizzeye.app.service.Call;
 import app.wizzeye.app.service.CallService;
 import app.wizzeye.app.service.CallState;
