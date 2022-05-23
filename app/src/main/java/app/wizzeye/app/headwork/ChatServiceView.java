@@ -34,6 +34,7 @@ public class ChatServiceView extends InRoomFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        Log.d("url", "je suis das le onCreateView");
         View view = inflater.inflate(R.layout.headwork_hud, container, false);
         mDisplayText = view.findViewById(R.id.clock);
         return view;
