@@ -30,11 +30,16 @@ public class ChatServiceView extends InRoomFragment {
 
     int i = 0;
     private TextView mDisplayText;
-    @NonNull private final Handler mHandler = new Handler(getContext().getMainLooper());
+    @NonNull private final Handler mHandler;
+
+    public ChatServiceView() {
+        Log.d("url", "je suis dans le constructeur ChatServiceView");
+        mHandler = new Handler(getContext().getMainLooper());
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        Log.d("url", "je suis das le onCreateView");
+        Log.d("url", "je suis dans le onCreateView ChatServiceView");
         View view = inflater.inflate(R.layout.headwork_hud, container, false);
         mDisplayText = view.findViewById(R.id.clock);
         return view;
