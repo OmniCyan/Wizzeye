@@ -1,4 +1,4 @@
-package app.wizzeye.app.headwork;
+package app.wizzeye.app.fragments;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -21,12 +21,13 @@ import app.wizzeye.app.R;
 import app.wizzeye.app.SettingsActivity;
 import app.wizzeye.app.WizzeyeApplication;
 import app.wizzeye.app.fragments.InRoomFragment;
+import app.wizzeye.app.headwork.Data;
 import app.wizzeye.app.service.CallState;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ChatServiceView extends InRoomFragment {
+public class ChatFragment extends InRoomFragment {
 
     int i = 0;
     private TextView mDisplayText;
