@@ -41,8 +41,10 @@ import com.iristick.smartglass.support.app.IristickApp;
 
 import org.webrtc.SurfaceViewRenderer;
 
+import app.wizzeye.app.MainActivity;
 import app.wizzeye.app.R;
 import app.wizzeye.app.WizzeyeApplication;
+import app.wizzeye.app.headwork.ChatService;
 import app.wizzeye.app.headwork.Data;
 import app.wizzeye.app.service.Call;
 import app.wizzeye.app.service.LaserMode;
@@ -234,20 +236,7 @@ public class CallFragment extends InRoomFragment {
     private void onClickChat(){
 
         Log.d("url","VOICI LA CHAT ");
-        retrofit2.Call<Data> response = WizzeyeApplication.getService().serviceResponse(String.valueOf(i));
-        response.enqueue(new Callback<Data>() {
-            @Override
-            public void onResponse(retrofit2.Call<Data> call, Response<Data> response) {
-                Log.d("url", response.body().getContent());
-                //mDisplayText.setText(response.body().getContent());
-                //Log.d("HandlerPerso", mHandler.toString());
-            }
-
-            @Override
-            public void onFailure(retrofit2.Call<Data> call, Throwable t) {
-                Log.d("url", t.getMessage());
-            }
-        });
+        new ChatService(getContext(), getView().getDisplay());
     }
 
     private final NavigationView.OnNavigationItemSelectedListener mOptionsListener = item -> {
