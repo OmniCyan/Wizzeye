@@ -238,7 +238,7 @@ public class CallFragment extends InRoomFragment {
 
         Log.d("url","DEBUT du onClickChat ");
         //new ChatService(getContext(), getView().getDisplay());
-        new ChatServiceView();
+        new ChatServiceView().getView();
         Log.d("url","FIN du onClickChat ");
     }
 
