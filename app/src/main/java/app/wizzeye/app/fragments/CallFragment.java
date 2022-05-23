@@ -20,17 +20,14 @@
  */
 package app.wizzeye.app.fragments;
 
-import android.content.ClipData;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
@@ -45,8 +42,12 @@ import com.iristick.smartglass.support.app.IristickApp;
 import org.webrtc.SurfaceViewRenderer;
 
 import app.wizzeye.app.R;
+import app.wizzeye.app.WizzeyeApplication;
+import app.wizzeye.app.headwork.Data;
 import app.wizzeye.app.service.Call;
 import app.wizzeye.app.service.LaserMode;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class CallFragment extends InRoomFragment {
 
@@ -64,6 +65,7 @@ public class CallFragment extends InRoomFragment {
     private Message mParametersChangedMessage;
     private Message mTurbulenceMessage;
     private ImageButton mImageButton;
+    private FrameLayout mFrameLayout;
 
 
     private boolean mFocusHintShown = false;
@@ -92,6 +94,8 @@ public class CallFragment extends InRoomFragment {
         mMore.setOnClickListener(v -> mDrawerLayout.openDrawer(mOptions));
 
         mImageButton = view.findViewById(R.id.chat_button);
+        mFrameLayout = view.findViewById(R.id.chat_framelayout);
+        mImageButton.setOnClickListener(v -> onClickChat());
 
 
         Handler handler = new Handler(this::handleMessage);
@@ -228,7 +232,22 @@ public class CallFragment extends InRoomFragment {
     };
 
     private void onClickChat(){
-        Log.e("test1","je veux créer ma view chat");
+
+        Log.d("url","VOICI LA CHAT ");
+        retrofit2.Call<Data> response = WizzeyeApplication.getService().serviceResponse(String.valueOf(i));
+        response.enqueue(new Callback<Data>() {
+            @Override
+            public void onResponse(retrofit2.Call<Data> call, Response<Data> response) {
+                Log.d("url", response.body().getContent());
+                //mDisplayText.setText(response.body().getContent());
+                //Log.d("HandlerPerso", mHandler.toString());
+            }
+
+            @Override
+            public void onFailure(retrofit2.Call<Data> call, Throwable t) {
+                Log.d("url", t.getMessage());
+            }
+        });
     }
 
     private final NavigationView.OnNavigationItemSelectedListener mOptionsListener = item -> {
