@@ -30,11 +30,11 @@ public class ChatServiceView extends InRoomFragment {
 
     int i = 0;
     private TextView mDisplayText;
-    @NonNull private final Handler mHandler;
+    //@NonNull private final Handler mHandler;
 
     public ChatServiceView() {
         Log.d("url", "je suis dans le constructeur ChatServiceView");
-        mHandler = new Handler(getContext().getMainLooper());
+        //mHandler = new Handler(getContext().getMainLooper());
     }
 
     @Override
@@ -60,7 +60,7 @@ public class ChatServiceView extends InRoomFragment {
     @Override
     public void onStop() {
         /* Called when the presentation is dismissed. Do cleanup here. */
-        mHandler.removeCallbacks(mAction);
+        //mHandler.removeCallbacks(mAction);
         super.onStop();
     }
 
@@ -75,7 +75,7 @@ public class ChatServiceView extends InRoomFragment {
                 public void onResponse(Call<Data> call, Response<Data> response) {
                     //Log.d("url", response.body().getContent());
                     mDisplayText.setText(response.body().getContent());
-                    Log.d("HandlerPerso", mHandler.toString());
+                    //Log.d("HandlerPerso", mHandler.toString());
                 }
 
                 @Override
@@ -84,7 +84,7 @@ public class ChatServiceView extends InRoomFragment {
                 }
             });
 
-            mHandler.postDelayed(this, 1000);
+            //mHandler.postDelayed(this, 1000);
         }
     };
 }
