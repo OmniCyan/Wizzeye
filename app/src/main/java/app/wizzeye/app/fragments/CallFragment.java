@@ -41,16 +41,9 @@ import com.iristick.smartglass.support.app.IristickApp;
 
 import org.webrtc.SurfaceViewRenderer;
 
-import app.wizzeye.app.MainActivity;
 import app.wizzeye.app.R;
-import app.wizzeye.app.WizzeyeApplication;
-import app.wizzeye.app.headwork.ChatService;
-import app.wizzeye.app.headwork.ChatServiceView;
-import app.wizzeye.app.headwork.Data;
 import app.wizzeye.app.service.Call;
 import app.wizzeye.app.service.LaserMode;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class CallFragment extends InRoomFragment {
 
@@ -238,7 +231,7 @@ public class CallFragment extends InRoomFragment {
 
         Log.d("url","DEBUT du onClickChat ");
         //new ChatService(getContext(), getView().getDisplay());
-        new ChatServiceView().getView();
+        new ChatFragment().getView();
         Log.d("url","FIN du onClickChat ");
     }
 
