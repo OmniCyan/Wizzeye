@@ -20,6 +20,7 @@
  */
 package app.wizzeye.app.fragments;
 
+import android.app.Fragment;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -230,8 +231,12 @@ public class CallFragment extends InRoomFragment {
     private void onClickChat(){
 
         Log.d("url","DEBUT du onClickChat ");
+        Fragment f = new ChatFragment();
         //new ChatService(getContext(), getView().getDisplay());
-        new ChatFragment().getView();
+        getFragmentManager().beginTransaction()
+            .replace(android.R.id.content, f)
+            .commit();
+        //new ChatFragment().getView();
         Log.d("url","FIN du onClickChat ");
     }
 

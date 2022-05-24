@@ -10,12 +10,15 @@ import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.iristick.smartglass.support.app.HudPresentation;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 
 import app.wizzeye.app.R;
 import app.wizzeye.app.SettingsActivity;
@@ -31,32 +34,46 @@ public class ChatFragment extends InRoomFragment {
 
     int i = 0;
     private TextView mDisplayText;
-    //@NonNull private final Handler mHandler;
+    Handler mHandler;
+    ListView l;
+    ArrayList<String> items;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         Log.d("url", "je suis dans le onCreateView ChatServiceView");
-        View view = inflater.inflate(R.layout.headwork_hud, container, false);
-        mDisplayText = view.findViewById(R.id.clock);
+        View view = inflater.inflate(R.layout.activity_tchat, container, false);
+
+
         return view;
     }
 
-    /*@Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    @Override
+    public void onViewCreated(@NonNull View view,  Bundle savedInstanceState) {
+        super.onViewCreated(view,savedInstanceState);
         //Set layout.
+        /*
         setContentView(R.layout.headwork_hud);
         // Get widgets defined in the layout.
         mDisplayText = findViewById(R.id.clock);
         // Start updating the clock.
+
+         */
+        l = view.findViewById(R.id.chatlist);
+
+        items = new ArrayList<>();
+        l.setAdapter(new ArrayAdapter<String>(view.getContext(),android.R.layout.simple_list_item_1,items));
+        //l.setAdapter(new ArrayAdapter<String>(view.getContext(),R.layout.item_chat,items));
+
+        //mDisplayText = view.findViewById(R.id.clock);s
+        mHandler = new Handler();
         mHandler.postDelayed(mAction, 0);
 
-    } */
+    }
 
     @Override
     public void onStop() {
         /* Called when the presentation is dismissed. Do cleanup here. */
-        //mHandler.removeCallbacks(mAction);
+        mHandler.removeCallbacks(mAction);
         super.onStop();
     }
 
@@ -70,7 +87,10 @@ public class ChatFragment extends InRoomFragment {
                 @Override
                 public void onResponse(Call<Data> call, Response<Data> response) {
                     //Log.d("url", response.body().getContent());
-                    mDisplayText.setText(response.body().getContent());
+    //                    mDisplayText.setText(response.body().getContent());
+                    //l.getAdapter().notify();
+                    items.add(response.body().getContent());
+                    l.invalidate();
                     //Log.d("HandlerPerso", mHandler.toString());
                 }
 
