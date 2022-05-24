@@ -20,6 +20,7 @@ import com.iristick.smartglass.support.app.HudPresentation;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import app.wizzeye.app.BaseActivity;
 import app.wizzeye.app.R;
@@ -27,6 +28,7 @@ import app.wizzeye.app.SettingsActivity;
 import app.wizzeye.app.WizzeyeApplication;
 import app.wizzeye.app.fragments.InRoomFragment;
 import app.wizzeye.app.headwork.Data;
+import app.wizzeye.app.headwork.JSONResponse;
 import app.wizzeye.app.service.CallState;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -39,6 +41,7 @@ public class ChatFragment extends InRoomFragment{
     Handler mHandler;
     ListView l;
     ArrayList<String> items;
+    ArrayList<Data> contentList;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -81,20 +84,29 @@ public class ChatFragment extends InRoomFragment{
         @Override
         public void run() {
             i = i + 1;
-            Call<Data> response = WizzeyeApplication.getService().serviceResponse(String.valueOf(i));
-            response.enqueue(new Callback<Data>() {
+            Call<JSONResponse> response = WizzeyeApplication.getService().serviceResponse(String.valueOf(i));
+            response.enqueue(new Callback<JSONResponse>() {
                 @Override
-                public void onResponse(Call<Data> call, Response<Data> response) {
-                    //zLog.d("url", response.body().getContent());
+                public void onResponse(Call<JSONResponse> call, Response<JSONResponse> response) {
+                    //Log.d("url", response.body().getContent());
                     //mDisplayText.setText(response.body().getContent());
                     //l.getAdapter().notify();
-                    items.add(response.body().getContent());
-                    l.invalidate();
+                    //items.add(response.body().getContent());
+                    //l.invalidate();
                     //Log.d("HandlerPerso", mHandler.toString());
+
+                    JSONResponse jsonResponse = response.body();
+                    contentList = new ArrayList<Data>(Arrays.asList(jsonResponse.getContents()));
+                    Log.d("url", contentList.toString());
+
+                    items.add(contentList.toString());
+                    l.invalidate();
+
+                    //PutDataIntoRecylerView(contentList);
                 }
 
                 @Override
-                public void onFailure(Call<Data> call, Throwable t) {
+                public void onFailure(Call<JSONResponse> call, Throwable t) {
                     Log.d("url", t.getMessage());
                 }
             });
