@@ -85,7 +85,7 @@ public class ChatFragment extends InRoomFragment{
             response.enqueue(new Callback<Data>() {
                 @Override
                 public void onResponse(Call<Data> call, Response<Data> response) {
-                    //Log.d("url", response.body().getContent());
+                    //zLog.d("url", response.body().getContent());
                     //mDisplayText.setText(response.body().getContent());
                     //l.getAdapter().notify();
                     items.add(response.body().getContent());

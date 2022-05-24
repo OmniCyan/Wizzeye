@@ -6,7 +6,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Query;
 
 public interface HeadworkService {
-    @GET("crowd-glasses/tap.php")
+    @GET("GlassesController.php?action=GET")
     Call<Data> serviceResponse(@Query("data") String data);
 }
 
