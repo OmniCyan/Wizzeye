@@ -229,7 +229,6 @@ public class CallFragment extends InRoomFragment {
     };
 
     private void onClickChat(){
-
         Log.d("url","DEBUT du onClickChat ");
         Fragment f = new ChatFragment();
         //new ChatService(getContext(), getView().getDisplay());

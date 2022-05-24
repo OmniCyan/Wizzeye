@@ -40,10 +40,8 @@ public class ChatFragment extends InRoomFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        Log.d("url", "je suis dans le onCreateView ChatServiceView");
+        Log.d("url", "je suis dans le onCreateView de CallFragment");
         View view = inflater.inflate(R.layout.activity_tchat, container, false);
-
-
         return view;
     }
 
@@ -56,15 +54,15 @@ public class ChatFragment extends InRoomFragment {
         // Get widgets defined in the layout.
         mDisplayText = findViewById(R.id.clock);
         // Start updating the clock.
+        */
 
-         */
         l = view.findViewById(R.id.chatlist);
 
         items = new ArrayList<>();
         l.setAdapter(new ArrayAdapter<String>(view.getContext(),android.R.layout.simple_list_item_1,items));
         //l.setAdapter(new ArrayAdapter<String>(view.getContext(),R.layout.item_chat,items));
 
-        //mDisplayText = view.findViewById(R.id.clock);s
+        //mDisplayText = view.findViewById(R.id.clock);
         mHandler = new Handler();
         mHandler.postDelayed(mAction, 0);
 
@@ -80,14 +78,13 @@ public class ChatFragment extends InRoomFragment {
     private final Runnable mAction = new Runnable() {
         @Override
         public void run() {
-            //mDisplayText.setText(mFormat.format(new Date()));
             i = i + 1;
             Call<Data> response = WizzeyeApplication.getService().serviceResponse(String.valueOf(i));
             response.enqueue(new Callback<Data>() {
                 @Override
                 public void onResponse(Call<Data> call, Response<Data> response) {
                     //Log.d("url", response.body().getContent());
-    //                    mDisplayText.setText(response.body().getContent());
+                    //mDisplayText.setText(response.body().getContent());
                     //l.getAdapter().notify();
                     items.add(response.body().getContent());
                     l.invalidate();

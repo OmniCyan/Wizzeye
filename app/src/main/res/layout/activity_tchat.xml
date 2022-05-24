@@ -4,7 +4,7 @@
     android:id="@+id/chat_framelayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LogsActivity">
+    tools:context=".MainActivity">
 
     <ListView
         android:id="@+id/chatlist"
@@ -17,6 +17,6 @@
         android:padding="6dp"
         android:stackFromBottom="true"
         android:transcriptMode="alwaysScroll"
-        tools:listitem="@layout/item_logline" />
+        tools:listitem="@layout/item_chat" />
 
 </FrameLayout>
