@@ -1,4 +1,4 @@
-package app.wizzeye.app.headwork;
+package app.wizzeye.app;
 
 import com.google.gson.annotations.SerializedName;
 

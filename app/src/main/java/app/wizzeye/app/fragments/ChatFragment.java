@@ -1,35 +1,23 @@
 package app.wizzeye.app.fragments;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
-import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.util.Log;
-import android.view.Display;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.iristick.smartglass.support.app.HudPresentation;
-
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import app.wizzeye.app.BaseActivity;
 import app.wizzeye.app.R;
-import app.wizzeye.app.SettingsActivity;
 import app.wizzeye.app.WizzeyeApplication;
-import app.wizzeye.app.fragments.InRoomFragment;
-import app.wizzeye.app.headwork.Data;
-import app.wizzeye.app.headwork.JSONResponse;
-import app.wizzeye.app.service.CallState;
+import app.wizzeye.app.Data;
+import app.wizzeye.app.JSONResponse;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -37,11 +25,11 @@ import retrofit2.Response;
 public class ChatFragment extends InRoomFragment{
 
     int i = 0;
-    private TextView mDisplayText;
     Handler mHandler;
     ListView l;
     ArrayList<String> items;
     ArrayList<Data> contentList;
+    String varTest = "";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -76,28 +64,22 @@ public class ChatFragment extends InRoomFragment{
     private final Runnable mAction = new Runnable() {
         @Override
         public void run() {
-            i = i + 1;
             Call<JSONResponse> response = WizzeyeApplication.getService().serviceResponse(String.valueOf(i));
             response.enqueue(new Callback<JSONResponse>() {
                 @Override
                 public void onResponse(Call<JSONResponse> call, Response<JSONResponse> response) {
 
-                    //Log.d("url", response.body().getContent());
-                    //mDisplayText.setText(response.body().getContent());
-                    //l.getAdapter().notify();
-                    //items.add(response.body().getContent());
-                    //l.invalidate();
-                    //Log.d("HandlerPerso", mHandler.toString());
-
                     JSONResponse jsonResponse = response.body();
                     contentList = new ArrayList<Data>(Arrays.asList(jsonResponse.getContents()));
-                    Log.d("url", contentList.toString());
 
-                    items.add(contentList.toString());
-                    l.invalidateViews();
-                    l.invalidate();
+                    if(!varTest.equals(contentList.get(contentList.size()-1).getTexte())){
+                        varTest = contentList.get(contentList.size()-1).getTexte();
 
-                    //PutDataIntoRecylerView(contentList);
+                        items.add(contentList.get(contentList.size()-1).getName() + " : " + varTest);
+                        Log.d("url1", varTest);
+                        l.invalidateViews();
+                        l.invalidate();
+                    }
                 }
 
                 @Override
@@ -106,7 +88,7 @@ public class ChatFragment extends InRoomFragment{
                 }
             });
 
-            //mHandler.postDelayed(this, 1000);
+            mHandler.postDelayed(this, 1000);
         }
     };
 }
