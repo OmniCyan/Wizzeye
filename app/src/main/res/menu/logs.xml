@@ -5,7 +5,7 @@
         android:title="@string/menu_share"
         android:icon="@drawable/action_share"
         app:showAsAction="always" />
-    <item android:id="@+id/refresh"
+    <item android:id="@+id/refreshChat"
         android:title="@string/menu_refresh"
         android:icon="@drawable/action_refresh"
         app:showAsAction="ifRoom" />

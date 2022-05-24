@@ -30,7 +30,7 @@ import app.wizzeye.app.service.CallService;
 /**
  * Base class for all fragments.
  */
-public abstract class BaseFragment extends Fragment {
+public abstract class BaseFragment extends Fragment{
 
     protected MainActivity mMainActivity;
     protected CallService mService;

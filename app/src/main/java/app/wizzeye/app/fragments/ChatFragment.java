@@ -8,6 +8,7 @@ import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.Display;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -20,6 +21,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
+import app.wizzeye.app.BaseActivity;
 import app.wizzeye.app.R;
 import app.wizzeye.app.SettingsActivity;
 import app.wizzeye.app.WizzeyeApplication;
@@ -30,7 +32,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ChatFragment extends InRoomFragment {
+public class ChatFragment extends InRoomFragment{
 
     int i = 0;
     private TextView mDisplayText;

@@ -83,7 +83,7 @@ public class LogsActivity extends BaseActivity {
                 .setType("text/plain")
                 .putExtra(Intent.EXTRA_TEXT, mAdapter.toString()));
             return true;
-        case R.id.refresh:
+        case R.id.refreshChat:
             mAdapter.reload();
             return true;
         default:
