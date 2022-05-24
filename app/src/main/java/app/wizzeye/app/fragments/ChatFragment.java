@@ -53,21 +53,14 @@ public class ChatFragment extends InRoomFragment{
     @Override
     public void onViewCreated(@NonNull View view,  Bundle savedInstanceState) {
         super.onViewCreated(view,savedInstanceState);
-        //Set layout.
-        /*
-        setContentView(R.layout.headwork_hud);
-        // Get widgets defined in the layout.
-        mDisplayText = findViewById(R.id.clock);
-        // Start updating the clock.
-        */
 
         l = view.findViewById(R.id.chatlist);
 
         items = new ArrayList<>();
         l.setAdapter(new ArrayAdapter<String>(view.getContext(),android.R.layout.simple_list_item_1,items));
+
         //l.setAdapter(new ArrayAdapter<String>(view.getContext(),R.layout.item_chat,items));
 
-        //mDisplayText = view.findViewById(R.id.clock);
         mHandler = new Handler();
         mHandler.postDelayed(mAction, 0);
 
@@ -88,6 +81,7 @@ public class ChatFragment extends InRoomFragment{
             response.enqueue(new Callback<JSONResponse>() {
                 @Override
                 public void onResponse(Call<JSONResponse> call, Response<JSONResponse> response) {
+
                     //Log.d("url", response.body().getContent());
                     //mDisplayText.setText(response.body().getContent());
                     //l.getAdapter().notify();
@@ -100,6 +94,7 @@ public class ChatFragment extends InRoomFragment{
                     Log.d("url", contentList.toString());
 
                     items.add(contentList.toString());
+                    l.invalidateViews();
                     l.invalidate();
 
                     //PutDataIntoRecylerView(contentList);
