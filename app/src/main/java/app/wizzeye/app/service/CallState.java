@@ -20,8 +20,8 @@
  */
 package app.wizzeye.app.service;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.StringRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.StringRes;
 
 import app.wizzeye.app.R;
 import app.wizzeye.app.fragments.BaseFragment;
