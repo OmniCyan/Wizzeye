@@ -90,10 +90,8 @@ public class CallFragment extends InRoomFragment {
         mMore = view.findViewById(R.id.more);
         mMore.setOnClickListener(v -> mDrawerLayout.openDrawer(mOptions));
 
-
-        mFrameLayout = view.findViewById(R.id.chat_framelayout);
-
         mImageButton = view.findViewById(R.id.chat_button);
+        mFrameLayout = view.findViewById(R.id.chat_framelayout);
         mImageButton.setOnClickListener(v -> onClickChat());
 
 
