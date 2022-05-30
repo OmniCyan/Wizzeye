@@ -20,7 +20,7 @@
  */
 package app.wizzeye.app.service;
 
-import android.support.annotation.StringRes;
+import androidx.annotation.StringRes;
 
 import app.wizzeye.app.R;
 

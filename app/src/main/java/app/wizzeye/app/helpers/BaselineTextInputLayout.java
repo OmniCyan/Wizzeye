@@ -21,9 +21,10 @@
 package app.wizzeye.app.helpers;
 
 import android.content.Context;
-import android.support.design.widget.TextInputLayout;
 import android.util.AttributeSet;
 import android.widget.EditText;
+
+import com.google.android.material.textfield.TextInputLayout;
 
 /**
  * Simple extension of {@code TextInputLayout} to compute correct baseline.

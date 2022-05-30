@@ -20,7 +20,7 @@
  */
 package app.wizzeye.app.service;
 
-import android.support.annotation.DrawableRes;
+import androidx.annotation.DrawableRes;
 
 import app.wizzeye.app.R;
 

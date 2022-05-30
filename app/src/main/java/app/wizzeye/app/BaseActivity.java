@@ -21,7 +21,7 @@
 package app.wizzeye.app;
 
 import android.content.Context;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.iristick.smartglass.support.app.IristickApp;
 

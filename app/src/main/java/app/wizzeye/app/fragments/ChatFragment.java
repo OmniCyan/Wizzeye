@@ -1,15 +1,22 @@
 package app.wizzeye.app.fragments;
 
+import android.Manifest;
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -22,7 +29,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ChatFragment extends InRoomFragment{
+public class ChatFragment extends InRoomFragment {
 
     int i = 0;
     Handler mHandler;
@@ -39,19 +46,14 @@ public class ChatFragment extends InRoomFragment{
     }
 
     @Override
-    public void onViewCreated(@NonNull View view,  Bundle savedInstanceState) {
+    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view,savedInstanceState);
-
         l = view.findViewById(R.id.chatlist);
-
         items = new ArrayList<>();
         l.setAdapter(new ArrayAdapter<String>(view.getContext(),android.R.layout.simple_list_item_1,items));
-
         //l.setAdapter(new ArrayAdapter<String>(view.getContext(),R.layout.item_chat,items));
-
         mHandler = new Handler();
         mHandler.postDelayed(mAction, 0);
-
     }
 
     @Override
@@ -81,7 +83,6 @@ public class ChatFragment extends InRoomFragment{
                         l.invalidate();
                     }
                 }
-
                 @Override
                 public void onFailure(Call<JSONResponse> call, Throwable t) {
                     Log.d("url", t.getMessage());
