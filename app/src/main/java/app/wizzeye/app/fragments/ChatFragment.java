@@ -21,6 +21,7 @@ import androidx.core.app.ActivityCompat;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import app.wizzeye.app.MainActivity;
 import app.wizzeye.app.R;
 import app.wizzeye.app.WizzeyeApplication;
 import app.wizzeye.app.Data;
@@ -37,6 +38,8 @@ public class ChatFragment extends InRoomFragment {
     ArrayList<String> items;
     ArrayList<Data> contentList;
     String varTest = "";
+    private String longitude;
+    private String latitude;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -66,6 +69,9 @@ public class ChatFragment extends InRoomFragment {
     private final Runnable mAction = new Runnable() {
         @Override
         public void run() {
+            longitude = ((MainActivity)getActivity()).getLongitude();
+            latitude = ((MainActivity)getActivity()).getLatitude();
+
             Call<JSONResponse> response = WizzeyeApplication.getService().serviceResponse(String.valueOf(i));
             response.enqueue(new Callback<JSONResponse>() {
                 @Override

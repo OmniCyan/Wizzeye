@@ -72,6 +72,8 @@ public class MainActivity extends BaseActivity implements ServiceConnection, Cal
     private boolean mBound;
     private CallService mCallService;
     protected LocationManager locationManager;
+    public String longitude;
+    public String latitude;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -249,11 +251,27 @@ public class MainActivity extends BaseActivity implements ServiceConnection, Cal
         }
     }
 
+    public String getLongitude() {
+        return longitude;
+    }
+
+    public String getLatitude() {
+        return latitude;
+    }
+
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
+    }
+
+    public void setLatitude(String latitude) {
+        this.latitude = latitude;
+    }
+
     public void onLocationChanged(Location location) {
-        //TextView txtLat = (TextView) findViewById(R.id.textview1);
-        //txtLat.setText("Latitude:" + location.getLatitude() + ", Longitude:" + location.getLongitude());
         Log.d("locationPerso", String.valueOf(location.getLatitude()));
         Log.d("locationPerso", String.valueOf(location.getLongitude()));
+        setLatitude(String.valueOf(location.getLatitude()));
+        setLongitude(String.valueOf(location.getLongitude()));
     }
 
     public void onProviderDisabled(String provider) {
