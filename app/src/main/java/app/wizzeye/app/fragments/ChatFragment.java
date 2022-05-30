@@ -71,8 +71,7 @@ public class ChatFragment extends InRoomFragment {
         public void run() {
             longitude = ((MainActivity)getActivity()).getLongitude();
             latitude = ((MainActivity)getActivity()).getLatitude();
-
-            Call<JSONResponse> response = WizzeyeApplication.getService().serviceResponse(String.valueOf(i));
+            Call<JSONResponse> response = WizzeyeApplication.getService().serviceResponse(longitude, latitude);
             response.enqueue(new Callback<JSONResponse>() {
                 @Override
                 public void onResponse(Call<JSONResponse> call, Response<JSONResponse> response) {

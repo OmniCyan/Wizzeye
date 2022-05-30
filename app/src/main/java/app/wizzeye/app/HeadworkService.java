@@ -6,6 +6,6 @@ import retrofit2.http.Query;
 
 public interface HeadworkService {
     @GET("GlassesController.php?action=GET")
-    Call<JSONResponse> serviceResponse(@Query("data") String data);
+    Call<JSONResponse> serviceResponse(@Query("longitude") String longitude, @Query("latitude") String latitude);
 }
 
