@@ -20,6 +20,7 @@ import androidx.core.app.ActivityCompat;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 
 import app.wizzeye.app.MainActivity;
 import app.wizzeye.app.R;
@@ -75,17 +76,20 @@ public class ChatFragment extends InRoomFragment {
             response.enqueue(new Callback<JSONResponse>() {
                 @Override
                 public void onResponse(Call<JSONResponse> call, Response<JSONResponse> response) {
-                    //Log.d("urlEnvoye", call.request().toString());
+
                     JSONResponse jsonResponse = response.body();
-                    contentList = new ArrayList<Data>(Arrays.asList(jsonResponse.getContents()));
 
-                    if(!varTest.equals(contentList.get(contentList.size()-1).getTexte())){
-                        varTest = contentList.get(contentList.size()-1).getTexte();
+                    if(jsonResponse.getContents() != null) {
+                        contentList = new ArrayList<Data>(Arrays.asList(jsonResponse.getContents()));
 
-                        items.add(contentList.get(contentList.size()-1).getName() + " : " + varTest);
-                        Log.d("url1", varTest);
-                        l.invalidateViews();
-                        l.invalidate();
+                        if(!varTest.equals(contentList.get(contentList.size()-1).getTexte())){
+                            varTest = contentList.get(contentList.size()-1).getTexte();
+
+                            items.add(contentList.get(contentList.size()-1).getName() + " : " + varTest);
+                            Log.d("url1", varTest);
+                            l.invalidateViews();
+                            l.invalidate();
+                        }
                     }
                 }
                 @Override
