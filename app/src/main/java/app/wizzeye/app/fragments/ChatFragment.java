@@ -75,7 +75,7 @@ public class ChatFragment extends InRoomFragment {
             response.enqueue(new Callback<JSONResponse>() {
                 @Override
                 public void onResponse(Call<JSONResponse> call, Response<JSONResponse> response) {
-
+                    //Log.d("urlEnvoye", call.request().toString());
                     JSONResponse jsonResponse = response.body();
                     contentList = new ArrayList<Data>(Arrays.asList(jsonResponse.getContents()));
 
