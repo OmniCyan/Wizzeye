@@ -242,9 +242,9 @@ public class MainActivity extends BaseActivity implements ServiceConnection, Cal
             WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         if (IristickApp.getInteractionMode() == Headset.INTERACTION_MODE_HUD) {
             switch (newState) {
-            case CALL_IN_PROGRESS:
+            /*case CALL_IN_PROGRESS:
                 getSupportActionBar().hide();
-                break;
+                break;*/
             default:
                 getSupportActionBar().show();
             }
@@ -268,7 +268,9 @@ public class MainActivity extends BaseActivity implements ServiceConnection, Cal
     }
 
     public void onLocationChanged(Location location) {
+        Log.d("locationPerso", "Latitude : ");
         Log.d("locationPerso", String.valueOf(location.getLatitude()));
+        Log.d("locationPerso", "Longitude : ");
         Log.d("locationPerso", String.valueOf(location.getLongitude()));
         setLatitude(String.valueOf(location.getLatitude()));
         setLongitude(String.valueOf(location.getLongitude()));
@@ -285,4 +287,5 @@ public class MainActivity extends BaseActivity implements ServiceConnection, Cal
     public void onStatusChanged(String provider, int status, Bundle extras) {
         Log.d("Latitude","status");
     }
+
 }

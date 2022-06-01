@@ -54,11 +54,6 @@ public abstract class InRoomFragment extends BaseFragment {
         setHasOptionsMenu(true);
     }
 
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.inroom, menu);
-        super.onCreateOptionsMenu(menu, inflater);
-    }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
@@ -73,7 +68,7 @@ public abstract class InRoomFragment extends BaseFragment {
         if (mCall == null)
             return super.onOptionsItemSelected(item);
         switch (item.getItemId()) {
-        case R.id.share_link:
+        case R.id.back_link:
             mMainActivity.startActivity(new Intent(Intent.ACTION_SEND)
                 .setType("text/plain")
                 .putExtra(Intent.EXTRA_TEXT, mCall.getRoomLink()));
