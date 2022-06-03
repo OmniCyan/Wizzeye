@@ -115,27 +115,24 @@ public class ChatFragment extends InRoomFragment {
     private final Runnable mAction = new Runnable() {
         @Override
         public void run() {
-            //latitude = ((MainActivity)getActivity()).getLatitude();
-            //longitude = ((MainActivity)getActivity()).getLongitude();
-            longitude = "48.117266";
-            latitude = "-1.67777926";
+            latitude = ((MainActivity)getActivity()).getLatitude();
+            longitude = ((MainActivity)getActivity()).getLongitude();
             Call<JSONResponse> response = WizzeyeApplication.getService().serviceResponse(latitude, longitude);
             response.enqueue(new Callback<JSONResponse>() {
                 @Override
                 public void onResponse(Call<JSONResponse> call, Response<JSONResponse> response) {
-
                     JSONResponse jsonResponse = response.body();
 
                     if(jsonResponse.getContents() != null) {
                         contentList = new ArrayList<Data>(Arrays.asList(jsonResponse.getContents()));
-
-                        if(!varTest.equals(contentList.get(contentList.size()-1).getTexte())){
-                            varTest = contentList.get(contentList.size()-1).getTexte();
-
-                            items.add(contentList.get(contentList.size()-1).getName() + " : " + varTest);
-                            Log.d("url1", varTest);
-                            l.invalidateViews();
-                            l.invalidate();
+                        if(contentList.size()>0) {
+                            if(!varTest.equals(contentList.get(contentList.size()-1).getTexte())){
+                                varTest = contentList.get(contentList.size()-1).getTexte();
+                                items.add(contentList.get(contentList.size()-1).getName() + " : " + varTest);
+                                Log.d("url1", varTest);
+                                l.invalidateViews();
+                                l.invalidate();
+                            }
                         }
                     }
                 }
@@ -144,7 +141,6 @@ public class ChatFragment extends InRoomFragment {
                     Log.d("url", t.getMessage());
                 }
             });
-
             mHandler.postDelayed(this, 1000);
         }
     };
